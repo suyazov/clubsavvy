@@ -69,6 +69,9 @@
 - [x] Обновлено `/help/index.php`.
 - [x] Обновлено `/help/delivery/index.php`.
 - [x] Проверено состояние раздела каталога `Телефоны`: уже `ACTIVE=N`.
+- [x] После скриншота пользователя найден и исправлен реальный источник header-menu: `/.subtop_content_multilevel.menu.php`.
+- [x] После скриншота пользователя найден и исправлен реальный источник выпадающего Aspro-menu: `/.top_content_multilevel.menu.php`.
+- [x] Создан дополнительный backup Aspro-меню в `/upload/clubsavvy_ai_backup_aspro_menu_*`.
 
 ## 04. Результаты и статус публикации
 - [x] Результаты проектной диагностики зафиксированы в AFFiNE.
