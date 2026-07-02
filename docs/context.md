@@ -140,3 +140,10 @@ GitHub хранит структурированную рабочую базу �
 - Оставлены 4 демонстрационных товара: один только `Хит`, один только `Домашнее`, два товара `Хит + Домашнее`.
 - Проверка после изменения: `TOTAL=2303`, `WITH_FLAGS=4`.
 - Backup: `/upload/clubsavvy_ai_backup_product_flags_20260702_094500`, `/upload/clubsavvy_ai_backup_product_flags_food_20260702_094538`, `/upload/clubsavvy_ai_backup_product_flags_real_food_20260702_094624`.
+
+## Удаление бейджей с разделов каталога 2026-07-02
+- Пользователь уточнил, что на странице `/catalog/` признаки `Хит` и `Домашнее` не нужны вообще.
+- Полностью очищены секционные `UF_HIT` и товарные `HIT` в каталоге `IBLOCK_ID=26`.
+- Проверка базы: `TOTAL_SECTIONS=19 WITH_FLAGS=0`, `TOTAL=2303 WITH_FLAGS=0`.
+- Aspro продолжал выводить стикеры на корне каталога из шаблонного блока `.catalog_section_list.type_sections_5 .section_item > .stickers.custom-font`, поэтому добавлена точечная CSS-правка в `/bitrix/templates/aspro_max/css/custom.css`.
+- Backup: `/upload/clubsavvy_ai_backup_remove_all_flags_20260702_095015`, `/upload/clubsavvy_ai_backup_hide_catalog_section_stickers_20260702_095059`.
