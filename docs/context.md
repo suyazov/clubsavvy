@@ -116,3 +116,11 @@ GitHub хранит структурированную рабочую базу �
 - Исправлены файлы: `/.top.menu.php`, `/.bottom.menu.php`, `/company/.left.menu.php`, `/help/.left.menu.php`, `/.subtop_content_multilevel.menu.php`, `/.top_content_multilevel.menu.php`.
 - Создан backup аварийного исправления: `/upload/clubsavvy_ai_backup_repair_20260702_093425`.
 - После исправления главная `https://clubsavvy.shop/` отвечает `HTTP/2 200`.
+
+## Исправление overlay на `/help/` 2026-07-02
+- Пользователь показал скриншот `/help/`, где страница была затемнена серым overlay.
+- Причина: активные демо-маркетинговые окна Aspro (`IBLOCK_ID=25`) и фон модалки могли зависать поверх страницы.
+- Отключены активные маркетинговые окна: `Открыли новый магазин в Москве`, `Скидки 15% на всю электронику`, `Файлы cookie`, `Заказать консультацию`, `Ликвидация остатков`.
+- Добавлена CSS-страховка в `/bitrix/templates/aspro_max/css/custom.css`, которая скрывает зависший `.cd-modal-bg` и пустой `.jqmOverlay`.
+- Backup: `/upload/clubsavvy_ai_backup_disable_popups_20260702_093902`, `/upload/clubsavvy_ai_backup_overlay_css_20260702_093923`.
+- Проверка: `/help/` отвечает `HTTP/2 200`, текст `Как пользоваться ClubSavvy` присутствует.
