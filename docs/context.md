@@ -147,3 +147,14 @@ GitHub хранит структурированную рабочую базу �
 - Проверка базы: `TOTAL_SECTIONS=19 WITH_FLAGS=0`, `TOTAL=2303 WITH_FLAGS=0`.
 - Aspro продолжал выводить стикеры на корне каталога из шаблонного блока `.catalog_section_list.type_sections_5 .section_item > .stickers.custom-font`, поэтому добавлена точечная CSS-правка в `/bitrix/templates/aspro_max/css/custom.css`.
 - Backup: `/upload/clubsavvy_ai_backup_remove_all_flags_20260702_095015`, `/upload/clubsavvy_ai_backup_hide_catalog_section_stickers_20260702_095059`.
+
+## Тестовый импорт товаров из `savvy-catalog.xlsx` 2026-07-02
+- По просьбе пользователя тестово загружены первые 3 товара из файла `savvy-catalog.xlsx`.
+- Раздел импорта: `Овощи и фрукты → Фрукты`, section `ID=517`.
+- Созданы/использованы свойства для импорта: `SAVVY_PACKING`, `SAVVY_CALORIES`, `SAVVY_PROTEINS`, `SAVVY_FATS`, `SAVVY_CARBOHYDRATES`, `SAVVY_SHELF_LIFE`, `SAVVY_STORAGE_CONDITIONS`.
+- Загружены товары:
+  - `FRU-001` → `Лимон Узбекистан`, element `ID=3317`, цена `135`, URL `/catalog/ovoshchi-i-frukty/frukty/3317/`.
+  - `FRU-002` → `Лайм`, element `ID=3318`, цена `202.50`, URL `/catalog/ovoshchi-i-frukty/frukty/3318/`.
+  - `FRU-003` → `Кумкват свежий`, element `ID=3319`, цена `243`, URL `/catalog/ovoshchi-i-frukty/frukty/3319/`.
+- Картинки скачаны с внешних URL из файла и прикреплены как preview/detail picture.
+- Backup тестового импорта: `/upload/clubsavvy_ai_backup_test_import_20260702_165942`.
