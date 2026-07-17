@@ -192,3 +192,18 @@ GitHub хранит структурированную рабочую базу �
 Проверено: главная и `/catalog/` отвечают 200, `custom.js` подключён, патч публично отдаётся, `node --check` для JS проходит.
 
 Бэкап: `/upload/clubsavvy_ai_backup_mobile_catalog_tap_20260717_221006`.
+
+## 2026-07-17 — финальная правка контактов и карты
+
+На `/contacts/` дополнительно исправлены остаточные контакты в Aspro-настройках и карте:
+- `b_option_site` / `aspro.max`: `HEADER_PHONES_array_PHONE_VALUE_0`, `HEADER_PHONES_array_PHONE_HREF_0` заменены на новый телефон.
+- `/include/footer/site-email.php` и `/include/vacancy_page/contact_email.php` заменены на `mail@pksabirin.ru`.
+- `/include/contacts-site-map.php` переписан с координатами `55.601010, 37.471102` и адресом `Москва, поселение Сосенское, 22-й километр Калужского шоссе, здание № 10`.
+
+Финальная live-проверка `/contacts/`: новый телефон и `tel:` есть; старый телефон и `tel:` отсутствуют; новая почта есть; старая почта отсутствует; новый адрес есть; старый адрес отсутствует; новые координаты карты есть; старые координаты отсутствуют.
+
+Бэкапы:
+- `/upload/clubsavvy_ai_backup_contacts_map_20260717_224051`
+- `/upload/clubsavvy_ai_backup_contacts_map_syntax_20260717_224155`
+- `/upload/clubsavvy_ai_backup_region_phone_20260717_224258.txt`
+- `/upload/clubsavvy_ai_backup_aspro_header_phone_20260717_224448.txt`
