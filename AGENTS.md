@@ -37,7 +37,6 @@ Global rules are defined in `/root/.openclaw/workspace/AGENTS.md`.
 12. Конфликт с `main` в кодовом файле не разрешать автоматически: остановиться и запросить ручное решение.
 <!-- KIMI-AUTOMATION:END -->
 
-
 <!-- KIMI-EXECUTION-V2:START -->
 ## Kimi execution safety
 
