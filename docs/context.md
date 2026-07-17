@@ -158,3 +158,37 @@ GitHub хранит структурированную рабочую базу �
   - `FRU-003` → `Кумкват свежий`, element `ID=3319`, цена `243`, URL `/catalog/ovoshchi-i-frukty/frukty/3319/`.
 - Картинки скачаны с внешних URL из файла и прикреплены как preview/detail picture.
 - Backup тестового импорта: `/upload/clubsavvy_ai_backup_test_import_20260702_165942`.
+
+## 2026-07-17 — правки витрины по материалам Сабирин
+
+Внесены материалы из архива `dlya-ilyi-2026-07-14.zip`:
+- `/faq/` — страница «Вопросы и ответы» с согласованными формулировками из `faq-vitrina.md`.
+- `/oferta/` — страница «Договор-оферта» из `oferta-bitrix.html`.
+- `/upload/clubsavvy_docs/zayavlenie-vstuplenie.pdf` — PDF заявления о вступлении в пайщики.
+- `/start/` — автономная onboarding-страница витрины из `onboarding-vitrina-savvy.html`.
+- Верхнее и нижнее меню дополнены ссылками на onboarding, FAQ и оферту.
+- Контакты обновлены: телефон, почта, адрес по сообщению клиента.
+
+Проверено live: `/faq/`, `/oferta/`, `/start/`, PDF заявления отвечают 200; на `/contacts/` отображаются новые телефон, почта и адрес.
+
+Бэкапы на сервере:
+- `/upload/clubsavvy_ai_backup_sabirin_20260717_215905`
+- `/upload/clubsavvy_ai_backup_contacts_include_20260717_220014`
+
+### Проверка после правок 2026-07-17
+
+При полной проверке страницы и контакты были корректны, но новые ссылки `/faq/`, `/oferta/`, `/start/` сначала не отображались на главной из-за используемых Aspro menu-файлов и кеша. Исправлены `/.top_content_multilevel.menu.php` и `/.subtop_content_multilevel.menu.php`, очищен кеш Bitrix/композита.
+
+Финальный smoke-test: 25/25 проверок успешно. Проверены HTTP 200 для главной, FAQ, оферты, onboarding, контактов и PDF; наличие ссылок на главной; ключевые тексты FAQ/оферты/onboarding; новые телефон, почта и адрес на контактах; PDF начинается с `%PDF`.
+
+Бэкап меню: `/upload/clubsavvy_ai_backup_menus_20260717_220348`.
+
+## 2026-07-17 — мобильное меню каталога
+
+Клиент сообщил: на мобильной версии первый тап по категории в меню каталога показывает/фокусирует карточку с картинкой, второй тап открывает раздел. Причина: стандартное mobile mega-menu Aspro использует preview/hover-like поведение для категорий с изображениями.
+
+Исправление: добавлен узкий JS-патч в `/bitrix/templates/aspro_max/js/custom.js` с маркером `clubsavvy: mobile catalog first tap navigation`. На мобильных (`max-width: 991px`) ссылки категорий `/catalog/...` внутри burger/mega-menu теперь сразу переходят по `href`, без первого preview-тапа.
+
+Проверено: главная и `/catalog/` отвечают 200, `custom.js` подключён, патч публично отдаётся, `node --check` для JS проходит.
+
+Бэкап: `/upload/clubsavvy_ai_backup_mobile_catalog_tap_20260717_221006`.
