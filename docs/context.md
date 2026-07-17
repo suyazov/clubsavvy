@@ -207,3 +207,13 @@ GitHub хранит структурированную рабочую базу �
 - `/upload/clubsavvy_ai_backup_contacts_map_syntax_20260717_224155`
 - `/upload/clubsavvy_ai_backup_region_phone_20260717_224258.txt`
 - `/upload/clubsavvy_ai_backup_aspro_header_phone_20260717_224448.txt`
+
+## 2026-07-17 — мобильное мигание изображений каталога
+
+После исправления двойного тапа оставалось мигание изображений категорий на мобильной версии. Добавлен отдельный guard:
+- `/bitrix/templates/aspro_max/js/custom.js` — `clubsavvy: mobile catalog eager section images`, на мобильных принудительно подставляет `data-src` в `src` для изображений категорий каталога и снимает lazy-классы.
+- `/bitrix/templates/aspro_max/css/custom.css` — `clubsavvy: mobile catalog image flicker guard`, отключает shine/transition/animation для изображений категорий на мобильном.
+
+Проверено: `custom.js` публично отдаёт патч и проходит `node --check`; `custom.css` публично отдаёт патч; мобильный `/catalog/` отвечает 200.
+
+Бэкап: `/upload/clubsavvy_ai_backup_mobile_image_flicker_20260717_224555`.
