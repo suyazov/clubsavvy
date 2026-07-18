@@ -249,3 +249,11 @@ GitHub хранит структурированную рабочую базу �
 Проверено: публичный `custom.css` содержит новый стек; главная отвечает 200.
 
 Бэкап: `/upload/clubsavvy_ai_backup_font_stack_20260718_210718`.
+
+## 2026-07-18 — переход из onboarding на витрину
+
+На `/start/` после успешного заполнения формы onboarding добавлен переход на главную витрину `/`. Логика: после `handleSubmit()` показывается success overlay и через 900 мс выполняется `window.location.href = '/'`.
+
+Проверено: `/start/` отвечает 200; публичный HTML содержит маркер `clubsavvy: redirect onboarding form to storefront` и `window.location.href = '/'`.
+
+Бэкап: `/upload/clubsavvy_ai_backup_start_redirect_20260718_210850`.
