@@ -257,3 +257,29 @@ GitHub хранит структурированную рабочую базу �
 Проверено: `/start/` отвечает 200; публичный HTML содержит маркер `clubsavvy: redirect onboarding form to storefront` и `window.location.href = '/'`.
 
 Бэкап: `/upload/clubsavvy_ai_backup_start_redirect_20260718_210850`.
+
+## 2026-07-18 — восстановление вложенных категорий каталога
+
+После переноса `/catalog/` на главную обнаружилось, что redirect-блок, добавленный в `/catalog/index.php`, ломал Bitrix SEF-обработку вложенных категорий `/catalog/...`: страницы отдавали Bitrix fatal-заглушку.
+
+Исправление:
+- Redirect-блок удалён из `/catalog/index.php`.
+- Редирект корня каталога перенесён в `.htaccess` как exact-rule:
+
+```apache
+# clubsavvy: redirect catalog root to home
+RewriteRule ^catalog/?$ / [R=301,L]
+```
+
+Так редиректится только `/catalog/`, а вложенные разделы и карточки продолжают обрабатываться компонентом `bitrix:catalog`.
+
+Проверено live:
+- `/catalog/` → 301 на `/`.
+- `/catalog/molochnye-produkty-yaytsa/` → 200, без fatal.
+- `/catalog/ovoshchi-i-frukty/frukty/` → 200, без fatal.
+- `/catalog/ovoshchi-i-frukty/frukty/3318/` → 200, без fatal.
+- Мобильный user-agent для `/catalog/molochnye-produkty-yaytsa/` → title `Молочные продукты, яйца`, без fatal.
+
+Бэкапы:
+- `/upload/clubsavvy_ai_backup_remove_bad_catalog_redirect_20260718_211055`
+- `/upload/clubsavvy_ai_backup_catalog_htaccess_redirect_20260718_211143`
