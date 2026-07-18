@@ -235,3 +235,17 @@ GitHub хранит структурированную рабочую базу �
 Бэкапы:
 - `/upload/clubsavvy_ai_backup_catalog_fonts_20260718_161358`
 - `/upload/clubsavvy_ai_backup_catalog_menu_force_20260718_161444`
+
+## 2026-07-18 — уточнение font stack под Yandex Lavka
+
+По скриншоту Font Finder для Lavka обновлён `--clubsavvy-font` в `/bitrix/templates/aspro_max/css/custom.css`:
+
+```css
+--clubsavvy-font: "YSText", "YS Text", Helvetica, Arial, sans-serif;
+```
+
+Файлы шрифта Яндекса не копировались; используется только CSS font-family stack с fallback.
+
+Проверено: публичный `custom.css` содержит новый стек; главная отвечает 200.
+
+Бэкап: `/upload/clubsavvy_ai_backup_font_stack_20260718_210718`.
