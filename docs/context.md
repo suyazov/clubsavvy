@@ -217,3 +217,21 @@ GitHub хранит структурированную рабочую базу �
 Проверено: `custom.js` публично отдаёт патч и проходит `node --check`; `custom.css` публично отдаёт патч; мобильный `/catalog/` отвечает 200.
 
 Бэкап: `/upload/clubsavvy_ai_backup_mobile_image_flicker_20260717_224555`.
+
+## 2026-07-18 — шрифты и скрытие корня каталога
+
+По просьбе клиента выполнены правки витрины:
+- В меню пункт `Каталог` теперь ведёт на главную `/` вместо `/catalog/`.
+- Для ровно `/catalog/` добавлен 301 redirect на `/`; вложенные URL разделов и товаров `/catalog/...` не затронуты.
+- В `/bitrix/templates/aspro_max/css/custom.css` добавлен typography override `clubsavvy: lavka-like typography`: используется стек `"YS Text", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`, усилены веса/spacing для заголовков и пунктов меню.
+
+Проверено live:
+- `/catalog/` отдаёт `301` на `/`.
+- `/catalog/ovoshchi-i-frukty/frukty/` отдаёт `200`.
+- `/catalog/ovoshchi-i-frukty/frukty/3318/` отдаёт `200`.
+- Пункт меню `Каталог` ведёт на `/`; старые прямые menu-ссылки `/catalog/` для пункта `Каталог` отсутствуют.
+- CSS-патч публично отдаётся.
+
+Бэкапы:
+- `/upload/clubsavvy_ai_backup_catalog_fonts_20260718_161358`
+- `/upload/clubsavvy_ai_backup_catalog_menu_force_20260718_161444`
